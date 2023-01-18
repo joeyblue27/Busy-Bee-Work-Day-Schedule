@@ -2,14 +2,14 @@
 $('#currentDay').text(dayjs().format('dddd, MMMM D, YYYY', 'h:mm A'));
 
 function timeAdjust() {
-    
-    var totalHours = dayjs().hour();
+    // loads the hours from dayjs
+    let totalHours = dayjs().hour();
 
-  
+    // adds hours of the day to scheduler 
     $('.time-block').each(function () {
-        var timeBlock = parseInt($(this).attr('id').split('-')[1]);
+        const timeBlock = parseInt($(this).attr('id').split('-')[1]);
 
-       
+
         if (timeBlock < totalHours) {
             $(this).addClass('past');
         } else if (timeBlock === totalHours) {
@@ -26,24 +26,33 @@ function timeAdjust() {
 timeAdjust();
 
 $(document).ready(function () {
-   
-    $('.saveBtn').on('click', function () {
-     
-        var saveSiblings = $(this).siblings('.description').val();
-        var saveParent= $(this).parent().attr('id');
 
+        //wait for the click button
+
+    $('.saveBtn').on('click', function () {
+
+        const saveSiblings = $(this).siblings('.description').val();
+        const saveParent = $(this).parent().attr('id');
+
+        // saves in local starage 
         localStorage.setItem(saveParent, saveSiblings);
 
+        // displays the scheduled text once saved
+
         $('.scheduling').addClass('scheduled');
-        // Shows the event scheduled header for 3 seconds 
+
+        // Shows the text scheduled for 3 seconds 
+
         setTimeout(function () {
             $('.scheduling').removeClass('scheduled');
         }, 3000);
     });
 
+    // updates the current time
+
     setInterval(timeAdjust, 15000);
 
-    //gets the value from local storage
+    //gets input from local storage
 
     $('#hour-9 .description').val(localStorage.getItem('hour-9'));
     $('#hour-10 .description').val(localStorage.getItem('hour-10'));
@@ -58,6 +67,5 @@ $(document).ready(function () {
     $('#hour-19 .description').val(localStorage.getItem('hour-19'));
     $('#hour-20 .description').val(localStorage.getItem('hour-20'));
     $('#hour-21 .description').val(localStorage.getItem('hour-21'));
-
 
 });
