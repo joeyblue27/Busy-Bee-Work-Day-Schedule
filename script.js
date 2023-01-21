@@ -63,9 +63,5 @@ $(document).ready(function () {
     $('#hour-15 .description').val(localStorage.getItem('hour-15'));
     $('#hour-16 .description').val(localStorage.getItem('hour-16'));
     $('#hour-17 .description').val(localStorage.getItem('hour-17'));
-    $('#hour-18 .description').val(localStorage.getItem('hour-18'));
-    $('#hour-19 .description').val(localStorage.getItem('hour-19'));
-    $('#hour-20 .description').val(localStorage.getItem('hour-20'));
-    $('#hour-21 .description').val(localStorage.getItem('hour-21'));
 
 });

@@ -6,8 +6,7 @@
 * Select which hour and click the folder to save appointments.
 
 ![Image1](./images/workday.gif)
-![Image2](./images/workday.png)
-![Image3](./images/workday2.png)
+
 
 
 # Links
